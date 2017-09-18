@@ -1,0 +1,25 @@
+var is = require('./lib/is');
+var render = require('./lib/render');
+var stylesheet = require('./lib/stylesheet');
+
+module.exports = function(fn) {
+  stylesheet.append();
+
+  if (is.touchDevice()) {
+    var el = render('<div class="AudiateTouch"><span>🔊</span></div>');
+
+    el.addEventListener('click', function() {
+      el.parentNode.removeChild(el);
+      fn();
+    });
+
+    document.body.appendChild(el);
+
+    return;
+  }
+
+  fn();
+
+  var indicator = render('<div class="AudiateSound">🔊</div>');
+  document.body.appendChild(indicator);
+};
