@@ -3,7 +3,7 @@ var render = require('./lib/render');
 var stylesheet = require('./lib/stylesheet');
 
 module.exports = function(fn) {
-  stylesheet.append();
+  stylesheet();
 
   if (is.touchDevice()) {
     var el = render('<div class="AudiateTouch"><span>🔊</span></div>');
