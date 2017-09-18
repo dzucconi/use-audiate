@@ -6,7 +6,7 @@ module.exports = function(fn) {
   stylesheet();
 
   if (is.touchDevice()) {
-    var el = render('<div class="AudiateTouch"><span>🔊</span></div>');
+    var el = render('<div class="Audiate AudiateTouch"><span>🔊</span></div>');
 
     el.addEventListener('click', function() {
       el.parentNode.removeChild(el);
@@ -20,6 +20,6 @@ module.exports = function(fn) {
 
   fn();
 
-  var indicator = render('<div class="AudiateSound">🔊</div>');
+  var indicator = render('<div class="Audiate AudiateSound">🔊</div>');
   document.body.appendChild(indicator);
 };
