@@ -11,10 +11,8 @@ yarn add audiate
 ```javascript
 import audiate from 'audiate';
 
-const someSound = new Sound;
-
 audiate(() => 
-  sound.play()
+  someSound.play()
 );
 ```
 
