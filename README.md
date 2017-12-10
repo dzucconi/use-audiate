@@ -9,11 +9,15 @@ A simple library to indicate audio is present on desktop, and to present a tap t
 * You have an app that autoplays audio immediately and want to give some indication to the user.
 * You touch devices to be detected and present a UI element that when tapped enables audio and begins playback.
 
-## Usage
+## Installation
 
-```
+```bash
 yarn add audiate
+# or
+npm i audiate --save
 ```
+
+## Usage
 
 ```javascript
 import audiate from 'audiate';
