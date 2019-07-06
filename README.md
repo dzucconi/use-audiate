@@ -2,35 +2,36 @@
 
 ## What is this?
 
-A simple library to indicate audio is present on desktop, and to present a tap to enable for audio on mobile which requires a user gesture to begin playback.
+A simple library to indicate autoplaying audio content is present, and to present a click/tap to enable screen to begin playback.
 
 ## Why should I use this?
 
-* You have an app that autoplays audio immediately and want to give some indication to the user.
-* You touch devices to be detected and present a UI element that when tapped enables audio and begins playback.
+- Chrome has recently [changed their autoplaying media policy](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes). It is confusing/unpredictable and detecting ability to autoplay is inconsistent.
+- You have an app that autoplays audio immediately and want to give some indication to the user.
+- You touch devices to be detected and present a UI element that when tapped enables audio and begins playback.
 
 ## Installation
 
 ```bash
 yarn add audiate
-# or
-npm i audiate --save
 ```
 
 ## Usage
 
 ```javascript
-import audiate from 'audiate';
+import audiate from "audiate";
 
-audiate(() => 
-  yourAutoPlayingInitialization()
-);
+audiate({
+  onEnable: () => {
+    // Initialize audio playback
+  }
+});
 ```
 
-## Customization
+## Options
 
-By default `audiate` renders the `Speaker With Three Sound Waves` emoji 🔊 to indicate sound is playing or available to play.
-
-The default stylesheet can be overridden using the class names `Audiate` which is always present. `AudiateTouch` and `AudiateSound` are attached to touch and desktop respectively. The default stylesheet can be found here [lib/stylesheet.js](https://github.com/dzucconi/audiate/blob/master/lib/stylesheet.js)
-
-![](http://static.damonzucconi.com/_capture/7FOOEopK3O.png)
+| Name            | Description                                                                                                                                              | Default value           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `clickToEnable` | Setting this to false will cause the blocking enable screen to only be enabled on mobile                                                                 | `true`                  |
+| `stylesheet`    | The default stylesheet can be overridden by passing the `stylesheet` option and targeting the class names: `Audiate`, `AudiateClick` and `AudiateSound`. | See `lib/stylesheet.js` |
+| `onEnable`      | Function that runs once blocking enable screen is tapped/clicked                                                                                         | `noop`                  |

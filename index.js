@@ -1,16 +1,37 @@
-var is = require('./lib/is');
-var render = require('./lib/render');
-var stylesheet = require('./lib/stylesheet');
+const is = require("./lib/is");
+const render = require("./lib/render");
+const stylesheet = require("./lib/stylesheet");
 
-module.exports = function(fn) {
-  stylesheet();
+const DEFAULTS = {
+  clickToEnable: true,
+  onEnable: () => {}
+};
 
-  if (is.touchDevice()) {
-    var el = render('<div class="Audiate AudiateTouch"><span>🔊</span></div>');
+module.exports = function(_options = {}) {
+  const options = { ...DEFAULTS, ..._options };
 
-    el.addEventListener('click', function() {
+  stylesheet(options.stylesheet);
+
+  const isTouch = is.touchDevice();
+
+  const onEnable = () => {
+    const indicator = render(`<div class="Audiate AudiateSound">🔊</div>`);
+
+    document.body.appendChild(indicator);
+
+    return options.onEnable();
+  };
+
+  if (options.clickToEnable || isTouch) {
+    const el = render(
+      `<div class="Audiate AudiateClick"><span>${
+        isTouch ? "Tap" : "Click"
+      } to enable audio</span></div>`
+    );
+
+    el.addEventListener("click", function() {
       el.parentNode.removeChild(el);
-      fn();
+      onEnable();
     });
 
     document.body.appendChild(el);
@@ -18,8 +39,5 @@ module.exports = function(fn) {
     return;
   }
 
-  fn();
-
-  var indicator = render('<div class="Audiate AudiateSound">🔊</div>');
-  document.body.appendChild(indicator);
+  return onEnable();
 };

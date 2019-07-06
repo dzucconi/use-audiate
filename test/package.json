@@ -1,0 +1,16 @@
+{
+  "name": "audiate-test",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html --open"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  },
+  "dependencies": {
+    "audiate": "^0.0.2",
+    "howler": "^2.1.2"
+  }
+}
