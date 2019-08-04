@@ -4,7 +4,8 @@ const stylesheet = require("./lib/stylesheet");
 
 const DEFAULTS = {
   clickToEnable: true,
-  onEnable: () => {}
+  message: null,
+  onEnable: () => { throw new Error('option `onEnable` is missing')}
 };
 
 module.exports = function(_options = {}) {
@@ -16,17 +17,14 @@ module.exports = function(_options = {}) {
 
   const onEnable = () => {
     const indicator = render(`<div class="Audiate AudiateSound">🔊</div>`);
-
     document.body.appendChild(indicator);
-
     return options.onEnable();
   };
 
   if (options.clickToEnable || isTouch) {
+    const message = options.message || `${isTouch ? "Tap" : "Click"} to enable audio`;
     const el = render(
-      `<div class="Audiate AudiateClick"><span>${
-        isTouch ? "Tap" : "Click"
-      } to enable audio</span></div>`
+      `<div class="Audiate AudiateClick"><span>${message}</span></div>`
     );
 
     el.addEventListener("click", function() {
