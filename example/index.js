@@ -5,6 +5,7 @@ const audiate = require("../index.js");
 
 const init = () => {
   audiate({
+    message: 'Click to play',
     onEnable: () => {
       document.getElementById("root").innerHTML = "playing sound...";
 

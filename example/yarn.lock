@@ -947,10 +947,9 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-audiate@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/audiate/-/audiate-0.0.2.tgz#a92699c9890c5975eb980598ca979ca834f9c91b"
-  integrity sha512-EGCjsBuwX2iP5XnqyLTCdHLljmLmIP/NK/98Gie1tnmXS/UFhftCGQA3/ipK62fwBWlG7MG6NOiof4qsAjwh2g==
+"audiate@link:..":
+  version "0.0.0"
+  uid ""
 
 aws-sign2@~0.7.0:
   version "0.7.0"

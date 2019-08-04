@@ -10,7 +10,7 @@
     "parcel": "^1.12.3"
   },
   "dependencies": {
-    "audiate": "^0.0.2",
+    "audiate": "link:..",
     "howler": "^2.1.2"
   }
 }
