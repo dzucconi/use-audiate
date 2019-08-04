@@ -35,4 +35,4 @@ audiate({
 | `clickToEnable` | Setting this to false will cause the blocking enable screen to only be enabled on mobile                                                                 | `true`                        |
 | `stylesheet`    | The default stylesheet can be overridden by passing the `stylesheet` option and targeting the class names: `Audiate`, `AudiateClick` and `AudiateSound`. | See `lib/stylesheet.js`       |
 | `onEnable`      | Function that runs once blocking enable screen is tapped/clicked                                                                                         | `noop`                        |
-| `message`       | Message presented to the user at block screen                                                                                                            | `'Tap|Click to enable audio'` |
+| `message`       | Message presented to the user at block screen                                                                                                            | `'Tap\|Click to enable audio'` |
