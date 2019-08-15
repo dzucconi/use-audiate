@@ -9,6 +9,7 @@ A simple library to indicate autoplaying audio content is present, and to presen
 - Chrome has recently [changed their autoplaying media policy](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes). It is confusing/unpredictable and detecting ability to autoplay is inconsistent.
 - You have an app that autoplays audio immediately and want to give some indication to the user.
 - You touch devices to be detected and present a UI element that when tapped enables audio and begins playback.
+- You probably shouldn't: Just build some kind of interaction into your app that triggers the playback.
 
 ## Installation
 
