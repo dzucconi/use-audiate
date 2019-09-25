@@ -1,4 +1,4 @@
-const sheet = `
+export const defaultStylesheet = `
   @keyframes AudiateFade {
     0% {
       opacity: 1;
@@ -35,24 +35,29 @@ const sheet = `
 
   .AudiateSound {
     position: fixed;
-    top: 0.75em;
-    left: 1em;
+    top: 0;
+    left: 0;
+    padding: 0.75em 1em;
+  }
+
+  .AudiateSound--suspended,
+  .AudiateSound--closed {
+    cursor: pointer;
+  }
+
+  .AudiateSound--running {
     animation: AudiateFade 3s;
     animation-delay: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-  };
+  }
 `;
 
-const append = function(content) {
+export const appendStylesheet = (content: string) => {
   const style = document.createElement("style");
 
   style.type = "text/css";
-  style.innerHTML = content || sheet;
+  style.innerHTML = content;
 
   return document.getElementsByTagName("head")[0].appendChild(style);
 };
-
-append.sheet = sheet;
-
-module.exports = append;

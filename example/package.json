@@ -1,16 +1,17 @@
 {
   "name": "audiate-test",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel index.html --open"
+    "start": "parcel index.html --open"
   },
   "devDependencies": {
     "parcel": "1.12.3"
   },
   "dependencies": {
-    "audiate": "link:..",
-    "howler": "^2.1.2"
+    "howler": "^2.1.2",
+    "queryparams": "^0.1.0"
   }
 }
