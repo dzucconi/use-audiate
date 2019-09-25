@@ -1,21 +1,41 @@
 const { Howl } = require("howler");
+const paramters = require("queryparams");
 
 const sine = require("./sine.mp3");
-const audiate = require("../index.js");
+const { block, ambient } = require("../dist");
+
+const { mode } = paramters({ mode: null });
+
+const play = () => {
+  document.getElementById("root").innerHTML =
+    "<center>playing sound...</center>";
+
+  const sound = new Howl({
+    src: [sine],
+    loop: true
+  });
+
+  sound.play();
+};
 
 const init = () => {
-  audiate({
-    message: 'Click to play',
-    onEnable: () => {
-      document.getElementById("root").innerHTML = "playing sound...";
+  if (mode === "block") {
+    block({ onEnable: play });
+    return;
+  }
 
-      const sound = new Howl({
-        src: [sine]
-      });
+  if (mode === "ambient") {
+    ambient();
+    play();
+    return;
+  }
 
-      sound.play();
-    }
-  });
+  document.getElementById("root").innerHTML = `
+    <center>
+      <a href="/?mode=block">block</a>
+      <a href="/?mode=ambient">ambient</a>
+    </center>
+  `;
 };
 
 document.addEventListener("DOMContentLoaded", init);
