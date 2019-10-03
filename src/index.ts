@@ -8,6 +8,13 @@ const TEMPLATES = {
   running: `<div class="Audiate AudiateSound AudiateSound--running">🔊</div>`
 };
 
+const check = () => {
+  const ctx = new AudioContext();
+  const { state } = ctx;
+  ctx.close();
+  return state;
+};
+
 export const ambient = ({
   stylesheet = defaultStylesheet
 }: {
@@ -15,33 +22,38 @@ export const ambient = ({
 } = {}) => {
   appendStylesheet(stylesheet);
 
-  const initialAudioContext = new AudioContext();
+  const initialState = check();
 
-  const indicator = render(TEMPLATES[initialAudioContext.state]);
+  const indicator = render(TEMPLATES[initialState]);
   document.body.appendChild(indicator);
 
-  if (initialAudioContext.state === "running") {
+  // Audio is able to be played
+  if (initialState === "running") {
     return;
   }
 
-  if (typeof initialAudioContext.close === "function") {
-    initialAudioContext.close();
-  }
+  let checkInterval: number;
 
   const unlock = () => {
-    const unlockedAudioContext = new AudioContext();
+    const unlockedState = check();
 
-    if (unlockedAudioContext.state === "running") {
+    if (unlockedState === "running") {
       indicator.innerHTML = TEMPLATES.running;
       document.removeEventListener("click", unlock);
-    }
-
-    if (typeof unlockedAudioContext.close === "function") {
-      unlockedAudioContext.close();
+      clearInterval(checkInterval);
     }
   };
 
   document.addEventListener("click", unlock);
+
+  checkInterval = setInterval(() => {
+    const checkedState = check();
+    if (checkedState === "running") {
+      indicator.innerHTML = TEMPLATES.running;
+      clearInterval(checkInterval);
+      document.removeEventListener("click", unlock);
+    }
+  }, 500);
 };
 
 export const block = ({
@@ -57,7 +69,7 @@ export const block = ({
 }) => {
   appendStylesheet(stylesheet);
 
-  const initialAudioContext = new AudioContext();
+  const initialState = check();
 
   const isTouch = isTouchDevice();
 
@@ -67,13 +79,9 @@ export const block = ({
     return onEnable();
   };
 
-  // Already running
-  if (initialAudioContext.state === "running") {
+  // Audio is able to be played
+  if (initialState === "running") {
     __onEnable__();
-
-    if (typeof initialAudioContext.close === "function") {
-      initialAudioContext.close();
-    }
 
     return;
   }

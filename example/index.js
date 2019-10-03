@@ -12,7 +12,8 @@ const play = () => {
 
   const sound = new Howl({
     src: [sine],
-    loop: true
+    loop: true,
+    volume: 0.5
   });
 
   sound.play();
