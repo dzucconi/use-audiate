@@ -1,6 +1,7 @@
 import { render } from "./lib/render";
 import { appendStylesheet, defaultStylesheet } from "./lib/stylesheet";
 import { isTouchDevice } from "./lib/is";
+import { initAudioContext } from "./lib/initAudioContext";
 
 const TEMPLATES = {
   closed: "",
@@ -9,7 +10,7 @@ const TEMPLATES = {
 };
 
 const check = () => {
-  const ctx = new AudioContext();
+  const ctx = initAudioContext();
   const { state } = ctx;
   ctx.close();
   return state;
@@ -22,7 +23,14 @@ export const ambient = ({
 } = {}) => {
   appendStylesheet(stylesheet);
 
-  const initialState = check();
+  let initialState: AudioContextState;
+  try {
+    initialState = check();
+  } catch (error) {
+    console.error(error);
+    // Silently return
+    return;
+  }
 
   const indicator = render(TEMPLATES[initialState]);
   document.body.appendChild(indicator);
@@ -69,7 +77,14 @@ export const block = ({
 }) => {
   appendStylesheet(stylesheet);
 
-  const initialState = check();
+  let initialState: AudioContextState;
+  try {
+    initialState = check();
+  } catch (error) {
+    console.error(error);
+    // Silently return
+    return;
+  }
 
   const isTouch = isTouchDevice();
 
