@@ -2,7 +2,7 @@ const { Howl } = require("howler");
 const paramters = require("queryparams");
 
 const sine = require("./sine.mp3");
-const { block, ambient } = require("../dist");
+const { block, ambient } = require("../../dist");
 
 const { mode } = paramters({ mode: null });
 
