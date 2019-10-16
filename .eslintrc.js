@@ -1,16 +1,13 @@
 module.exports = {
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true
-  },
-  extends: "eslint:recommended",
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
-  },
+  parser: "@typescript-eslint/parser",
+  extends: "plugin:@typescript-eslint/recommended",
+  plugins: ["react-hooks"],
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2018,
+    sourceType: "module"
   },
-  rules: {}
+  rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
 };
