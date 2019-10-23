@@ -4,7 +4,7 @@
 
 ## What is this?
 
-A React hook interface for a [simple library](https://github.com/dzucconi/audiate) to indicate autoplaying audio content is present, and to detect and present some UI to begin playback if it's been blocked by Chrome's autoplay policy.
+A React hook to detect and enable auto-playing audio content if it has been blocked by [Chrome's autoplay policy](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes).
 
 ## Installation
 
