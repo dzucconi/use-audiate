@@ -1,7 +1,7 @@
 {
-  "name": "audiate",
+  "name": "use-audiate",
   "author": "Damon Zucconi",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -23,5 +23,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn clean && tsc -p ."
+  },
+  "dependencies": {
+    "audiate": "^2.0.0"
   }
 }

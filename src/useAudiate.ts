@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-
-import { check } from "./lib/check";
-import { isAudioContextSupported as _isAudioContextSupported } from "./lib/is";
+import {
+  isAudioContextSupported as _isAudioContextSupported,
+  check
+} from "audiate";
 
 const CHECK_INTERVAL = 500;
 

@@ -148,6 +148,11 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
+audiate@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/audiate/-/audiate-2.0.0.tgz#f541a5080f4b26ebd4d6bcbe26f07b2a65bf1d7b"
+  integrity sha512-9PBzvROdF3TsazQmo/V55IU5nrnDYY1CYQmazMtDVc7dk6ZBmxb/g3riiatzfc0aguQaNaUvTylav+Y0pOXw8g==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"

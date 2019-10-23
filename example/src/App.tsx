@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useAudiate } from "audiate";
+import { useAudiate } from "use-audiate";
 
 const App: React.FC = () => {
   const [audioContextState, isEnabled] = useAudiate();
