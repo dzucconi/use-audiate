@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "optionalDependencies": {
+  "peerDependencies": {
     "react": ">=16.8.0"
   },
   "devDependencies": {
