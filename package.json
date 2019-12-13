@@ -24,7 +24,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn clean && tsc -p .",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "echo exit 0"
   },
   "dependencies": {
     "audiate": "^2.0.0"
