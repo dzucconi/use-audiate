@@ -12,7 +12,7 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@types/react": "16.14.8",
+    "@types/react": "18.0.25",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "cz-conventional-changelog": "3.3.0",
