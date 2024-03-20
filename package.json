@@ -20,7 +20,7 @@
     "eslint-plugin-react-hooks": "2.5.1",
     "react": "16.14.0",
     "semantic-release": "15.14.0",
-    "typescript": "3.9.9"
+    "typescript": "5.4.3"
   },
   "scripts": {
     "clean": "rm -rf dist",
